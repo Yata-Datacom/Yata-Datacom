@@ -1,4 +1,5 @@
 name: Credly Card
+# 触发说明：push（脚本/工作流改动）+ 每日定时 + 手动 dispatch
 
 # 自建 Credly 徽章统计卡：从 Credly 公开接口取数据 → 渲染成 SVG → 提交回仓库。
 # 为什么要自建：第三方徽章服务必须把 Credly 用户名写进图片 URL，公开主页等于把账号名贴出来；
