@@ -1,5 +1,5 @@
-*.png
-_*.svg
-badge_preview.png
+# 仅忽略根目录的本地预览截图（assets/ 里的徽章缩略图需要入库）
+/*.png
+/*.svg
 __pycache__/
 *.pyc
