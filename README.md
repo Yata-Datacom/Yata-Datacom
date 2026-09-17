@@ -23,7 +23,10 @@
 
 <img src="./assets/credly-badges.svg" alt="Credly 徽章统计" width="660" />
 
-<br />
+<br /><br />
+
+<!-- credly-badges:start -->
+<!-- credly-badges:end -->
 
 <sub>由仓库内 <code>tools/gen_credly_card.py</code> + GitHub Actions 从 Credly 公开数据自动生成<br />
 （自建卡片：不依赖第三方图床服务，公开页面里也不含任何账号名）</sub>

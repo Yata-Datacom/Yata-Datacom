@@ -25,6 +25,7 @@ import json
 import os
 import sys
 import urllib.error
+import re
 import urllib.request
 from collections import Counter
 from datetime import datetime, timezone
@@ -40,6 +41,8 @@ FONT = "Segoe UI,Helvetica,Arial,sans-serif"
 USER = os.environ.get("CREDLY_USER", "").strip()
 TITLE = os.environ.get("CARD_TITLE", "Yata-Datacom")
 OUT = Path(__file__).resolve().parent.parent / "assets" / "credly-badges.svg"
+BADGE_DIR = Path(__file__).resolve().parent.parent / "assets" / "badges"
+README = Path(__file__).resolve().parent.parent / "README.md"
 UA = {"User-Agent": "Mozilla/5.0 (compatible; credly-card-generator)"}
 
 
@@ -80,16 +83,25 @@ def wrap2(s: str, width: int = 22) -> list[str]:
     return [lines[0], truncate(" ".join(lines[1:]), width)]
 
 
-def data_uri(url: str, limit: int = 120_000) -> str:
-    """把徽章图片内嵌成 data URI（SVG 作为 <img> 渲染时无法加载外链资源）。"""
+def save_image(url: str, out: Path) -> str:
+    """
+    把徽章图片另存为仓库内的 PNG，**不**内嵌进 SVG。
+
+    为什么：GitHub 对提交进仓库的 SVG 有安全清理（script / foreignObject / **内嵌 data-URI 图片** 都会被拒），
+    内嵌后文件页会直接报 `Error rendering embedded code / Invalid image source`。
+    所以卡片只画矢量图形与文字，徽章缩略图用独立 PNG，在 README 里并排展示。
+    """
     try:
-        raw = fetch(url, timeout=45)
-        if len(raw) > limit:
+        if not url:
             return ""
-        mime = "image/png" if raw[:4] == b"\x89PNG" else ("image/jpeg" if raw[:2] == b"\xff\xd8" else "image/svg+xml")
-        return f"data:{mime};base64,{base64.b64encode(raw).decode()}"
+        raw = fetch(url, timeout=45)
+        if not raw or len(raw) > 400_000:
+            return ""
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(raw)
+        return out.name
     except Exception as e:
-        print(f"  ⚠ 图片下载失败 {url[:60]}: {e}")
+        print(f"  ⚠ 图片下载失败 {str(url)[:60]}: {e}")
         return ""
 
 
@@ -126,7 +138,8 @@ def collect(user: str) -> dict:
         items.append({
             "name": tpl.get("name") or "—",
             "issuer": issuer,
-            "img": data_uri(b.get("image_url") or (tpl.get("image") or {}).get("url") or ""),
+            "img": save_image(b.get("image_url") or (tpl.get("image") or {}).get("url") or "",
+                              BADGE_DIR / f"credly-{len(items) + 1}.png"),
             "issued": (b.get("issued_at") or "")[:10],
         })
     return {"total": len(badges), "issuers": issuers, "skills": skills, "active": active,
@@ -201,31 +214,41 @@ def render(d: dict) -> str:
     sk = " · ".join(f"{truncate(n, 18)} ({c})" for n, c in d["skills"].most_common(5)) or "—"
     s.append(f'<text x="22" y="{y}" fill="{NORD["muted"]}" font-size="12.5" font-family="{FONT}">'
              f'<tspan font-weight="700">Top Skills</tspan>  {esc(sk)}</text>')
-    # ── 徽章：整排三个（图 + 两行名称）──
-    items = d["items"][:4]
-    n_b = max(1, len(items))
-    cell = (W - 44) / n_b
-    img = 84
-    for i3, it in enumerate(items):
-        cx = 22 + i3 * cell + cell / 2
-        top = 196
-        s.append(f'<rect x="{cx - (img + 18) / 2:.0f}" y="{top}" width="{img + 18}" height="{img + 18}" rx="10" '
-                 f'fill="{NORD["panel"]}"/>')
-        if it["img"]:
-            s.append(f'<image x="{cx - img / 2:.0f}" y="{top + 9}" width="{img}" height="{img}" '
-                     f'preserveAspectRatio="xMidYMid meet" href="{it["img"]}"/>')
-        else:
-            s.append(f'<text x="{cx:.0f}" y="{top + 50}" fill="{NORD["dim"]}" font-size="11" text-anchor="middle" '
-                     f'font-family="{FONT}">badge image</text>')
-        for li, line in enumerate(wrap2(short_name(it["name"], it["issuer"]), 30)):
-            s.append(f'<text x="{cx:.0f}" y="{top + img + 34 + li * 13}" fill="{NORD["muted"]}" font-size="10.5" '
-                     f'text-anchor="middle" font-family="{FONT}">{esc(line)}</text>')
-        s.append(f'<text x="{cx:.0f}" y="{top + img + 34 + 26}" fill="{NORD["dim"]}" font-size="9.5" '
-                 f'text-anchor="middle" font-family="{FONT}">{esc(it["issuer"])} · {esc(it["issued"])}</text>')
+    # ── 徽章清单（纯文字；缩略图是仓库内独立 PNG，见 README）──
+    y2 = 188
+    s.append(f'<text x="22" y="{y2}" fill="{NORD["muted"]}" font-size="12.5" font-weight="700" '
+             f'font-family="{FONT}">Badges ({d["total"]})</text>')
+    y2 += 8
+    for it in d["items"][:5]:
+        y2 += 22
+        s.append(f'<circle cx="28" cy="{y2 - 4}" r="4" fill="{NORD["accent"]}"/>')
+        s.append(f'<text x="40" y="{y2}" fill="{NORD["text"]}" font-size="12" font-family="{FONT}">'
+                 f'{esc(truncate(short_name(it["name"], it["issuer"]), 46))}</text>')
+        s.append(f'<text x="{W - 22}" y="{y2}" fill="{NORD["dim"]}" font-size="11" text-anchor="end" '
+                 f'font-family="{FONT}">{esc(it["issuer"])} · {esc(it["issued"])}</text>')
     s.append(f'<text x="22" y="{H - 14}" fill="{NORD["dim"]}" font-size="10.5" font-family="{FONT}">'
              f'数据来源：Credly 公开接口 · 由仓库内 GitHub Actions 自动刷新</text>')
     s.append("</svg>")
     return "\n".join(s)
+
+
+def update_readme_badges(items: list[dict]) -> None:
+    """把徽章缩略图（独立 PNG）写进 README 的标记块，徽章增减时自动同步。"""
+    if not README.exists():
+        return
+    md = README.read_text(encoding="utf-8")
+    start, end = "<!-- credly-badges:start -->", "<!-- credly-badges:end -->"
+    if start not in md or end not in md:
+        print("  ⚠ README 里没有 credly-badges 标记块，跳过缩略图更新")
+        return
+    imgs = "\n".join(
+        f'<img src="./assets/badges/{esc(it["img"])}" height="96" '
+        f'alt="{esc(short_name(it["name"], it["issuer"]))}" title="{esc(it["name"])} · {esc(it["issuer"])}" />'
+        for it in items)
+    new = f"{start}\n{imgs}\n{end}"
+    md = re.sub(re.escape(start) + r".*?" + re.escape(end), new, md, flags=re.S)
+    README.write_text(md, encoding="utf-8")
+    print(f"  ✓ README 徽章缩略图已更新（{len(items)} 张）")
 
 
 def main() -> int:
@@ -236,6 +259,7 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     svg = render(d)
     OUT.write_text(svg, encoding="utf-8")
+    update_readme_badges([i for i in d["items"] if i["img"]])
     print(f"✓ 已生成 {OUT}  ({len(svg) / 1024:.0f} KB)")
     print(f"  徽章 {d['total']} 枚 · 发行方 {len(d['issuers'])} · 技能 {len(d['skills'])} · 有效 {d['active']}")
     print(f"  内嵌图片 {sum(1 for i in d['items'] if i['img'])}/{len(d['items'])} 张")
