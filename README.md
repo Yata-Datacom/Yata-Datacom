@@ -26,6 +26,9 @@
 <br /><br />
 
 <!-- credly-badges:start -->
+<img src="./assets/badges/credly-1.png" height="96" alt="Advanced System Administrator in Ansible" title="Red Hat Certified Advanced System Administrator in Ansible · Red Hat" />
+<img src="./assets/badges/credly-2.png" height="96" alt="Engineer in Ansible" title="Red Hat Certified Engineer in Ansible · Red Hat" />
+<img src="./assets/badges/credly-3.png" height="96" alt="System Administrator (RHCSA)" title="Red Hat Certified System Administrator (RHCSA) · Red Hat" />
 <!-- credly-badges:end -->
 
 <sub>由仓库内 <code>tools/gen_credly_card.py</code> + GitHub Actions 从 Credly 公开数据自动生成<br />
