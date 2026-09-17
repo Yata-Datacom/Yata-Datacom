@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: credly-card
+  cancel-in-progress: false
+
 jobs:
   credly:
     runs-on: ubuntu-latest
@@ -38,10 +42,15 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/credly-badges.svg
+          git add assets README.md          # 卡片 SVG + 徽章缩略图 PNG + README 标记块
           if git diff --cached --quiet; then
             echo "徽章无变化，跳过提交"
-          else
-            git commit -m "chore(credly): 刷新 Credly 徽章卡片 [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "chore(credly): 刷新 Credly 徽章卡片 [skip ci]"
+          # 期间可能有别的推送（比如刚合并的改动）→ 先 rebase 再推，失败重试 3 次
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "第 $i 次推送失败，3 秒后重试"; sleep 3
+          done
+          echo "推送失败"; exit 1
