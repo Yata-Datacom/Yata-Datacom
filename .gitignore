@@ -1,0 +1,5 @@
+*.png
+_*.svg
+badge_preview.png
+__pycache__/
+*.pyc
