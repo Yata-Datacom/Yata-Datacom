@@ -50,8 +50,8 @@
 <table width="100%">
 <thead>
 <tr>
-<th width="45%" align="left">方向</th>
-<th width="55%" align="left">关注内容</th>
+<th align="left">方向</th>
+<th align="left">关注内容</th>
 </tr>
 </thead>
 <tbody>
