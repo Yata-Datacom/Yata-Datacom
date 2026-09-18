@@ -1,9 +1,9 @@
 name: Credly Card
 # 触发说明：push（脚本/工作流改动）+ 每日定时 + 手动 dispatch
 
-# 自建 Credly 徽章统计卡：从 Credly 公开接口取数据 → 渲染成 SVG → 提交回仓库。
+# 从 Credly 公开接口取数据 → 把徽章图片存成仓库内 PNG → README 标记块直贴 PNG。
 # 为什么要自建：第三方徽章服务必须把 Credly 用户名写进图片 URL，公开主页等于把账号名贴出来；
-# 而且那些免费实例会冷启动/限流，主页会变破图。
+# 而且那些免费实例会冷启动/限流，主页会变破图。（SVG 卡片已弃用：部分客户端渲染不出来）
 # 用户名放在仓库 Secret `CREDLY_USER` 里 —— Secret 内容不会出现在公开仓库中。
 
 on:
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets README.md          # 卡片 SVG + 徽章缩略图 PNG + README 标记块
+          git add assets README.md          # 徽章 PNG + README 标记块
           if git diff --cached --quiet; then
             echo "徽章无变化，跳过提交"
             exit 0

@@ -249,6 +249,7 @@ def update_readme_badges(items: list[dict]) -> None:
     md = re.sub(re.escape(start) + r".*?" + re.escape(end), new, md, flags=re.S)
     README.write_text(md, encoding="utf-8")
     print(f"  ✓ README 徽章缩略图已更新（{len(items)} 张）")
+    return len(items)
 
 
 def main() -> int:
@@ -263,8 +264,8 @@ def main() -> int:
         svg = render(d)
         OUT.write_text(svg, encoding="utf-8")
         print(f"✓ 已生成 {OUT}  ({len(svg) / 1024:.0f} KB)")
-    update_readme_badges([i for i in d["items"] if i["img"]])
-    print(f"✓ 已生成 {OUT}  ({len(svg) / 1024:.0f} KB)")
+    n_img = update_readme_badges([i for i in d["items"] if i["img"]])
+    print(f"✓ 已更新徽章 PNG 与 README 缩略图（{n_img} 张，assets/badges/）")
     print(f"  徽章 {d['total']} 枚 · 发行方 {len(d['issuers'])} · 技能 {len(d['skills'])} · 有效 {d['active']}")
     print(f"  内嵌图片 {sum(1 for i in d['items'] if i['img'])}/{len(d['items'])} 张")
     return 0
