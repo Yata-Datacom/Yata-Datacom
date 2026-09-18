@@ -27,6 +27,11 @@
 <img src="./assets/badges/credly-3.png" height="110" alt="System Administrator (RHCSA)" title="Red Hat Certified System Administrator (RHCSA) · Red Hat" />
 <!-- credly-badges:end -->
 
+<br /><br />
+
+<img src="./assets/badges/huawei-hcie.png" height="110" alt="Huawei Certified ICT Expert (HCIE)" title="华为认证 ICT 专家 HCIE" />
+<img src="./assets/badges/huawei-hcip.png" height="110" alt="Huawei Certified ICT Professional (HCIP)" title="华为认证 ICT 高级工程师 HCIP" />
+
 </div>
 
 
