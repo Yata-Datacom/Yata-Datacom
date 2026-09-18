@@ -3,7 +3,7 @@
 为什么自建：
   第三方徽章服务（credly-readme-stats 之类）必须把 **Credly 用户名写进图片 URL**，
   公开主页上就等于把账号名（往往是真名拼音）贴出来了。自建卡片把数据取回来、
-  渲染成 SVG 提交到仓库，主页只引用 `./assets/credly-badges.svg`：
+  把徽章 PNG 存进仓库、主页直接引用（SVG 卡片已弃用）：
     · 公开页面里没有任何第三方 URL / 用户名
     · 不依赖第三方服务的可用性（那些免费实例会冷启动、会限流，主页会变破图）
     · 配色与主页其它元素统一（nord）
@@ -242,7 +242,7 @@ def update_readme_badges(items: list[dict]) -> None:
         print("  ⚠ README 里没有 credly-badges 标记块，跳过缩略图更新")
         return
     imgs = "\n".join(
-        f'<img src="./assets/badges/{esc(it["img"])}" height="96" '
+        f'<img src="./assets/badges/{esc(it["img"])}" height="110" '
         f'alt="{esc(short_name(it["name"], it["issuer"]))}" title="{esc(it["name"])} · {esc(it["issuer"])}" />'
         for it in items)
     new = f"{start}\n{imgs}\n{end}"
@@ -257,8 +257,12 @@ def main() -> int:
         return 2
     d = collect(USER)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    svg = render(d)
-    OUT.write_text(svg, encoding="utf-8")
+    # 主页现在直接贴 PNG 缩略图（GitHub 对仓库内 SVG 卡片的渲染不可靠，用户端加载不出来）。
+    # 需要留一份矢量卡片时设 CREDLY_SVG=1。
+    if os.environ.get("CREDLY_SVG") == "1":
+        svg = render(d)
+        OUT.write_text(svg, encoding="utf-8")
+        print(f"✓ 已生成 {OUT}  ({len(svg) / 1024:.0f} KB)")
     update_readme_badges([i for i in d["items"] if i["img"]])
     print(f"✓ 已生成 {OUT}  ({len(svg) / 1024:.0f} KB)")
     print(f"  徽章 {d['total']} 枚 · 发行方 {len(d['issuers'])} · 技能 {len(d['skills'])} · 有效 {d['active']}")
