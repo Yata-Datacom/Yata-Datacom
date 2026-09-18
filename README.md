@@ -49,34 +49,9 @@
 
 <div align="center">
 
-**语言与工具**
-
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white" />
-<img src="https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white" />
-<img src="https://img.shields.io/badge/Paramiko-4B8BBE?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" />
-
-<br /><br />
-
-**云原生**
-
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-<img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" />
-<img src="https://img.shields.io/badge/Podman-892CA0?style=flat-square&logo=podman&logoColor=white" />
-<img src="https://img.shields.io/badge/Cilium-F8C517?style=flat-square&logo=cilium&logoColor=white" />
-<img src="https://img.shields.io/badge/eBPF-1F6FEB?style=flat-square&logoColor=white" />
-
-<br /><br />
-
-**网络工程**
-
-<img src="https://img.shields.io/badge/Huawei%20VRP-C8102E?style=flat-square&logo=huawei&logoColor=white" />
-<img src="https://img.shields.io/badge/H3C-1F8A70?style=flat-square&logoColor=white" />
-<img src="https://img.shields.io/badge/Ruijie-2D6CDF?style=flat-square&logoColor=white" />
-<img src="https://img.shields.io/badge/DHCP%20ZTP-88C0D0?style=flat-square&logoColor=black" />
-<img src="https://img.shields.io/badge/SoftEther-EE0000?style=flat-square&logoColor=white" />
-<img src="https://img.shields.io/badge/OpenStack-ED1944?style=flat-square&logo=openstack&logoColor=white" />
+**语言与工具** <a href="#" title="Python-3776AB"><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python-3776AB" /></a> <a href="#" title="Rust-000000"><img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white" alt="Rust-000000" /></a> <a href="#" title="pytest-0A9EDC"><img src="https://img.shields.io/badge/pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white" alt="pytest-0A9EDC" /></a> <a href="#" title="Paramiko-4B8BBE"><img src="https://img.shields.io/badge/Paramiko-4B8BBE?style=flat-square&logo=python&logoColor=white" alt="Paramiko-4B8BBE" /></a> <a href="#" title="GitHub Actions-2088FF"><img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions-2088FF" /></a><br />
+**云原生** <a href="#" title="Docker-2496ED"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker-2496ED" /></a> <a href="#" title="Kubernetes-326CE5"><img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" alt="Kubernetes-326CE5" /></a> <a href="#" title="Podman-892CA0"><img src="https://img.shields.io/badge/Podman-892CA0?style=flat-square&logo=podman&logoColor=white" alt="Podman-892CA0" /></a> <a href="#" title="Cilium-F8C517"><img src="https://img.shields.io/badge/Cilium-F8C517?style=flat-square&logo=cilium&logoColor=white" alt="Cilium-F8C517" /></a> <a href="#" title="eBPF-1F6FEB"><img src="https://img.shields.io/badge/eBPF-1F6FEB?style=flat-square&logoColor=white" alt="eBPF-1F6FEB" /></a><br />
+**网络工程** <a href="#" title="Huawei VRP-C8102E"><img src="https://img.shields.io/badge/Huawei%20VRP-C8102E?style=flat-square&logo=huawei&logoColor=white" alt="Huawei VRP-C8102E" /></a> <a href="#" title="H3C-1F8A70"><img src="https://img.shields.io/badge/H3C-1F8A70?style=flat-square&logoColor=white" alt="H3C-1F8A70" /></a> <a href="#" title="Ruijie-2D6CDF"><img src="https://img.shields.io/badge/Ruijie-2D6CDF?style=flat-square&logoColor=white" alt="Ruijie-2D6CDF" /></a> <a href="#" title="DHCP ZTP-88C0D0"><img src="https://img.shields.io/badge/DHCP%20ZTP-88C0D0?style=flat-square&logoColor=black" alt="DHCP ZTP-88C0D0" /></a> <a href="#" title="SoftEther-EE0000"><img src="https://img.shields.io/badge/SoftEther-EE0000?style=flat-square&logoColor=white" alt="SoftEther-EE0000" /></a> <a href="#" title="OpenStack-ED1944"><img src="https://img.shields.io/badge/OpenStack-ED1944?style=flat-square&logo=openstack&logoColor=white" alt="OpenStack-ED1944" /></a>
 
 </div>
 
