@@ -47,7 +47,7 @@
 
 ## 🎯 关注方向
 
-<table>
+<table width="100%">
 <thead>
 <tr>
 <th width="45%" align="left">方向</th>
