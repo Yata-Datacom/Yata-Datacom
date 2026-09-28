@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Yata-Datacom — Network Ops x Automation Tooling">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECEFF4"/>
+      <stop offset="58%" stop-color="#E5E9F0"/>
+      <stop offset="100%" stop-color="#DCE2EA"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="14%" cy="18%" r="72%">
+      <stop offset="0%" stop-color="#88C0D0" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#88C0D0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="88%" cy="86%" r="60%">
+      <stop offset="0%" stop-color="#81A1C1" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#81A1C1" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.15" fill="#C2CCDA" fill-opacity="0.85"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <rect width="1200" height="300" fill="url(#glow2)"/>
+
+  <!-- network topology motif -->
+  <g fill="none" stroke="#81A1C1" stroke-opacity="0.75" stroke-width="1.6">
+    <path d="M866 74 L966 132 L1064 82"/>
+    <path d="M866 74 L916 202 L1016 218 L1064 82"/>
+    <path d="M966 132 L916 202"/>
+    <path d="M1064 82 L1116 176 L1016 218"/>
+    <path d="M966 132 L1116 176"/>
+  </g>
+  <g fill="#5E81AC">
+    <circle cx="866" cy="74" r="5"/>
+    <circle cx="966" cy="132" r="6.5"/>
+    <circle cx="1064" cy="82" r="5"/>
+    <circle cx="916" cy="202" r="4.5"/>
+    <circle cx="1016" cy="218" r="5.5"/>
+    <circle cx="1116" cy="176" r="4.5"/>
+  </g>
+  <circle cx="966" cy="132" r="12" fill="none" stroke="#5E81AC" stroke-opacity="0.45" stroke-width="1.4"/>
+
+  <!-- identity -->
+  <text x="72" y="116" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="57" font-weight="700" fill="#2E3440" letter-spacing="0.4">Yata-Datacom</text>
+  <text x="74" y="158" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20.5" fill="#5E81AC" letter-spacing="0.3">Network Ops x Automation Tooling</text>
+  <text x="74" y="193" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="15.5" fill="#4C566A">Python  ·  Rust  ·  SSH / DHCP / TFTP  ·  Cloud Native</text>
+
+  <line x1="74" y1="219" x2="452" y2="219" stroke="#81A1C1" stroke-width="2" stroke-opacity="0.9" stroke-linecap="round"/>
+  <text x="74" y="248" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#5E81AC">HCIE  ·  HCIP  ·  RHCSA  ·  Red Hat Certified in Ansible</text>
+</svg>
