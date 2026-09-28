@@ -2,11 +2,19 @@
 
 <div align="center">
 
-<img src="./assets/banner.svg" alt="Yata-Datacom — Network Ops × Automation Tooling" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.svg">
+  <img src="./assets/banner.svg" alt="Yata-Datacom — Network Ops × Automation Tooling" width="100%" />
+</picture>
 
 <br/><br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=88C0D0&center=true&vCenter=true&width=640&lines=Network+Ops+%E2%80%A2+Automation+Tooling;Python+%2F+Rust+%E2%80%A2+Cloud+Native;Turn+repetition+into+tools" alt="typing" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=88C0D0&center=true&vCenter=true&width=640&lines=Network+Ops+%E2%80%A2+Automation+Tooling;Python+%2F+Rust+%E2%80%A2+Cloud+Native;Turn+repetition+into+tools">
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=5E81AC&center=true&vCenter=true&width=640&lines=Network+Ops+%E2%80%A2+Automation+Tooling;Python+%2F+Rust+%E2%80%A2+Cloud+Native;Turn+repetition+into+tools">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=88C0D0&center=true&vCenter=true&width=640&lines=Network+Ops+%E2%80%A2+Automation+Tooling;Python+%2F+Rust+%E2%80%A2+Cloud+Native;Turn+repetition+into+tools" alt="typing" />
+</picture>
 
 ### Hi, I'm Yata 👋 <sub>· 你好，我是 Yata</sub>
 
@@ -37,7 +45,11 @@
 > 三个项目都配了 `pytest` 测试套件 + GitHub Actions（多平台测试、代码风格检查、Windows 打包产物）。
 
 <div align="center">
-<img src="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=dark&perline=10" alt="tech stack" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=dark&perline=10">
+  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=light&perline=10">
+  <img src="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=dark&perline=10" alt="tech stack" />
+</picture>
 </div>
 
 ---
