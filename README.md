@@ -44,15 +44,6 @@
 
 > The three inspection / automation tools ship with `pytest` suites + GitHub Actions (multi-OS tests, lint, Windows build artifacts); the portable launcher ships its own environment-isolation verifier.
 > 三个巡检 / 自动化工具都配了 `pytest` 测试套件 + GitHub Actions（多平台测试、代码风格检查、Windows 打包产物）；便携启动器自带环境隔离验证脚本。
-
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=dark&perline=10">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=light&perline=10">
-  <img src="https://skillicons.dev/icons?i=python,rust,bash,linux,docker,kubernetes,git,githubactions,ubuntu,debian&theme=dark&perline=10" alt="tech stack" />
-</picture>
-</div>
-
 ---
 
 ## 🏅 Certifications · 认证与徽章
