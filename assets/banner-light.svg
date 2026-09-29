@@ -1,18 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Yata-Datacom — Network Ops x Automation Tooling">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Yata-Datacom — Networks, Automation, Embedded, Cloud Native">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ECEFF4"/>
-      <stop offset="58%" stop-color="#E5E9F0"/>
-      <stop offset="100%" stop-color="#DCE2EA"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#F4F7FB"/>
+      <stop offset="100%" stop-color="#E7EDF5"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#81A1C1" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#81A1C1" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#88C0D0" stop-opacity="0.42"/>
+      <stop offset="78%" stop-color="#8FBCBB" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#8FBCBB" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="glow" cx="14%" cy="18%" r="72%">
-      <stop offset="0%" stop-color="#88C0D0" stop-opacity="0.42"/>
+      <stop offset="0%" stop-color="#88C0D0" stop-opacity="0.46"/>
       <stop offset="100%" stop-color="#88C0D0" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="88%" cy="86%" r="60%">
-      <stop offset="0%" stop-color="#81A1C1" stop-opacity="0.30"/>
+      <stop offset="0%" stop-color="#81A1C1" stop-opacity="0.34"/>
       <stop offset="100%" stop-color="#81A1C1" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="rule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5E81AC"/>
+      <stop offset="60%" stop-color="#8FBCBB" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#8FBCBB" stop-opacity="0"/>
+    </linearGradient>
     <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
       <circle cx="1.6" cy="1.6" r="1.15" fill="#C2CCDA" fill-opacity="0.85"/>
     </pattern>
@@ -20,6 +32,7 @@
 
   <rect width="1200" height="300" fill="url(#bg)"/>
   <rect width="1200" height="300" fill="url(#dots)"/>
+  <path d="M0 300 C220 232 430 262 640 196 C842 132 1030 118 1200 52 L1200 300 Z" fill="url(#aurora)" opacity="0.75"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
   <rect width="1200" height="300" fill="url(#glow2)"/>
 
@@ -39,13 +52,15 @@
     <circle cx="1016" cy="218" r="5.5"/>
     <circle cx="1116" cy="176" r="4.5"/>
   </g>
-  <circle cx="966" cy="132" r="12" fill="none" stroke="#5E81AC" stroke-opacity="0.45" stroke-width="1.4"/>
+  <g>
+    <circle cx="966" cy="132" r="12" fill="none" stroke="#5E81AC" stroke-opacity="0.4" stroke-width="1.4"/>
+  </g>
 
   <!-- identity -->
-  <text x="72" y="116" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="57" font-weight="700" fill="#2E3440" letter-spacing="0.4">Yata-Datacom</text>
-  <text x="74" y="158" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20.5" fill="#5E81AC" letter-spacing="0.3">Network Ops x Automation Tooling</text>
-  <text x="74" y="193" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="15.5" fill="#4C566A">Python  ·  Rust  ·  SSH / DHCP / TFTP  ·  Cloud Native</text>
+  <text x="72" y="112" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="57" font-weight="700" fill="#2E3440" letter-spacing="0.4">Yata-Datacom</text>
+  <text x="74" y="152" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="20" fill="#5E81AC" letter-spacing="0.3">Networks · Automation · Embedded · Cloud Native</text>
+  <text x="74" y="184" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="15.5" fill="#4C566A">and whatever I get curious about next</text>
 
-  <line x1="74" y1="219" x2="452" y2="219" stroke="#81A1C1" stroke-width="2" stroke-opacity="0.9" stroke-linecap="round"/>
-  <text x="74" y="248" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#5E81AC">HCIE  ·  HCIP  ·  RHCSA  ·  Red Hat Certified in Ansible</text>
+  <line x1="74" y1="212" x2="452" y2="212" stroke="url(#rule)" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="74" y="243" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="14" fill="#3F7F7A">HCIE · HCIP · RHCSA · Red Hat Certified in Ansible</text>
 </svg>
