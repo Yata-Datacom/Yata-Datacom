@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260" role="img" aria-label="DeepSeek chibi whale">
+  <defs>
+    <linearGradient id="dsw" x1="18%" y1="0%" x2="82%" y2="100%">
+      <stop offset="0%" stop-color="#9CC2FF"/>
+      <stop offset="45%" stop-color="#6C9BFF"/>
+      <stop offset="100%" stop-color="#4D6BFE"/>
+    </linearGradient>
+    <linearGradient id="dswBelly" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#DCE8FF" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="dswHalo" cx="50%" cy="52%" r="50%">
+      <stop offset="52%" stop-color="#88C0D0" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#88C0D0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="130" cy="136" r="120" fill="url(#dswHalo)"/>
+
+  <!-- spout -->
+  <g fill="#BFDDF0" opacity="0.85">
+    <circle cx="132" cy="60" r="3.4"/>
+    <circle cx="122" cy="46" r="4.2"/>
+    <circle cx="142" cy="44" r="3"/>
+  </g>
+
+  <!-- tail fluke -->
+  <path d="M74 150 C52 144 34 130 26 110 C48 114 66 126 78 142 Z" fill="url(#dsw)"/>
+  <!-- body -->
+  <ellipse cx="140" cy="142" rx="72" ry="58" fill="url(#dsw)"/>
+  <!-- belly -->
+  <ellipse cx="146" cy="166" rx="46" ry="28" fill="url(#dswBelly)" opacity="0.9"/>
+  <!-- side fin -->
+  <path d="M158 176 C170 186 186 190 200 187 C190 200 170 202 154 192 Z" fill="url(#dsw)" opacity="0.95"/>
+
+  <!-- eyes -->
+  <g>
+    <ellipse cx="114" cy="136" rx="8.6" ry="11" fill="#243B53"/>
+    <ellipse cx="166" cy="136" rx="8.6" ry="11" fill="#243B53"/>
+    <circle cx="117" cy="131" r="3.1" fill="#FFFFFF"/>
+    <circle cx="169" cy="131" r="3.1" fill="#FFFFFF"/>
+    <circle cx="111" cy="141" r="1.5" fill="#FFFFFF" opacity="0.75"/>
+    <circle cx="163" cy="141" r="1.5" fill="#FFFFFF" opacity="0.75"/>
+  </g>
+
+  <!-- blush -->
+  <ellipse cx="99" cy="154" rx="9.5" ry="5.6" fill="#F58EA8" opacity="0.5"/>
+  <ellipse cx="181" cy="154" rx="9.5" ry="5.6" fill="#F58EA8" opacity="0.5"/>
+
+  <!-- smile -->
+  <path d="M128 156 Q140 166 152 156" fill="none" stroke="#243B53" stroke-width="2.6" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- sparkles -->
+  <g fill="#8FBCBB" opacity="0.9">
+    <path d="M44 74 c1.6 5.4 3.2 7 8.6 8.6 c-5.4 1.6 -7 3.2 -8.6 8.6 c-1.6 -5.4 -3.2 -7 -8.6 -8.6 c5.4 -1.6 7 -3.2 8.6 -8.6 Z"/>
+    <path d="M214 96 c1.1 3.8 2.2 4.9 6 6 c-3.8 1.1 -4.9 2.2 -6 6 c-1.1 -3.8 -2.2 -4.9 -6 -6 c3.8 -1.1 4.9 -2.2 6 -6 Z" opacity="0.75"/>
+  </g>
+</svg>
